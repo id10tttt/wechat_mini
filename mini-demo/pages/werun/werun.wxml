@@ -1,0 +1,17 @@
+<view>
+  <view class="btn-area" id="buttonContainer">
+    <button type="primary" bindtap="tapHandler">获取微信运动数据</button>
+  </view>
+  <view>
+    <block wx:for="{{werun_data}}" wx:for-item="werun_info" wx:key="index">
+      <view class="werun_single_info">
+        <view class="werun_datetime">
+          <view class="datetime">{{werun_info.datetime}}</view>
+        </view>
+        <view class="werun_step">
+          <view class="step">{{werun_info.step}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

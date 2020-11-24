@@ -1,0 +1,12 @@
+<!--bonjour.wxml-->
+<view class="container">
+<view class='input-wrapper'>
+    <input bindinput='inputHandler' bindconfirm='confirmHandler' placeholder='订单金额' value='{{order_amount}}'></input>
+</view>
+<view class='button-wrapper'>
+    <button bindtap='tapHandler' class="primary">请求付款二维码</button>
+</view>
+  <view class="qr_code_info">
+    <canvas class="canvas-code"canvas-id="payment_qrcode" style="background:#fff;width: 200px;height: 200px;"/>
+  </view>
+</view>

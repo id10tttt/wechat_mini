@@ -1,0 +1,6 @@
+/* pages/camera/camera.wxss */
+.scan_message {
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: pre-line;
+}

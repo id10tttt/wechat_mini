@@ -1,0 +1,22 @@
+/* pages/werun/werun.wxss */
+.werun_single_info {
+  display: flex;
+  background: #fafafa;
+  padding: 20rpx;
+  border-bottom: 1rpx solid #fafafa;
+}
+
+.werun_datetime {
+  flex: 1;
+  margin: 0rpx 15rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.werun_step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}

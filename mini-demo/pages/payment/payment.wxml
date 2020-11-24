@@ -1,0 +1,13 @@
+<view class="page-body">
+  <view class="page-section">
+    <view class="weui-cells__title">订单金额</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <input class="weui-input" placeholder="0.00" bindinput="inputHandler" bindconfirm="confirmHandler" value="{{order_amount}}" />
+      </view>
+    </view>
+  </view>
+  <view class="btn-area" id="buttonContainer">
+    <button type="primary" bindtap="tapHandler">付款</button>
+  </view>
+</view>

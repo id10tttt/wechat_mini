@@ -1,0 +1,8 @@
+<view>
+  <view class="btn-area" id="buttonContainer">
+    <button type="primary" bindtap="tapHandler">扫描</button>
+  </view>
+  <view>
+  <text class="scan_message">{{scan_message}}</text>
+  </view>
+</view>
