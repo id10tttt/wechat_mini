@@ -43,33 +43,37 @@ Page({
   tapHandler: function(){
     let that = this;
     wx.login({
-      success: function (res) {
-        if(res.code){
+      success: function (login_res) {
+        if (login_res.code){
           let order_code = util.randomNumber();
           let order_data = {
             'order_amount': that.data.order_amount,
             'order_code': order_code,
             'subject': '91T平台订单号: ' + order_code,
             'body': '91T平台订单号: ' + order_code,
-            'user_id': res.code
+            'user_id': login_res.code
           }
 
-          wx_mini.get_wx_mini_order_trade(order_data).then(res => {
-            if(res.code == 200){
-              let sand_body_data = res.sand_data.body
-              console.log('sand_body_data: ', sand_body_data, res)
-              if (sand_body_data) {
+          wx_mini.get_wx_mini_order_trade(order_data).then(order_res => {
+            if (order_res.code == 200){
+              let sand_body_data = order_res.sand_data.body
+              let sand_head_data = order_res.sand_data.head
+              let wechat_credential = sand_body_data.credential
+              let wechat_credential_json = JSON.parse(wechat_credential)
+              let wechat_credential_params = JSON.parse(wechat_credential_json.params)
+
+              if (wechat_credential_params) {
                 wx.requestPayment({
-                  'timeStamp': sand_body_data.timeStamp,
-                  'nonceStr': sand_body_data.nonceStr,
-                  'package': sand_body_data.package,
-                  'signType': sand_body_data.signType,
-                  'paySign': sand_body_data.paySign,
-                  'success': function (res) {
-                    console.log('支付信息: ', res)
+                  timeStamp: wechat_credential_params.timeStamp,
+                  nonceStr: wechat_credential_params.nonceStr,
+                  package: wechat_credential_params.package,
+                  signType: wechat_credential_params.signType,
+                  paySign: wechat_credential_params.paySign,
+                  success: function (pay_res) {
+                    console.log('支付信息: ', pay_res)
                     // 保留当前页面，跳转到应用内某个页面，使用wx.nevigeteBack可以返回原页面
                     wx.navigateTo({
-                      url: '../pay/pay'
+                      url: '../index/index'
                     })
                   },
                 })

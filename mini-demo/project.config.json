@@ -18,11 +18,12 @@
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
-		}
+		},
+		"nodeModules": true
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.14.0",
-	"appid": "wx060968b212fa3f78",
+	"appid": "wxd729423434fc6989",
 	"projectname": "user_login",
 	"debugOptions": {
 		"hidedInDevtools": []

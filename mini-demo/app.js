@@ -36,7 +36,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    // apiUrl: 'https://payment.91t.com',
-    apiUrl: 'http://192.168.0.52:8900'
+    apiUrl: 'https://payment.91t.com',
+    // apiUrl: 'http://192.168.0.52:8900'
   }
 })
